@@ -40,8 +40,8 @@ public class ChangePasswordServlet extends HttpServlet {
         String user = (String) session.getAttribute("user");
         //Cookie[] cookies = request.getCookies();
         boolean isUpdated;
-
-        if (newPassword.isEmpty() && confirPassword.isEmpty()) {
+        
+        if (newPassword == null || newPassword.isEmpty() || confirPassword == null || confirPassword.isEmpty()) {
             out.println("<font color='red'><b>Sorry, The input field can't be empty </b></font>");
             RequestDispatcher rd = request.getRequestDispatcher("changePassword.html");
             rd.include(request, response);
